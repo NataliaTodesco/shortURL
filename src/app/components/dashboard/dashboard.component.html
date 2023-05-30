@@ -1,0 +1,30 @@
+<div class="alert alert-danger text-center" role="alert" *ngIf="alerta != ''">
+    {{alerta | uppercase}}
+  </div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-7 ">
+            <div>
+                <h1 style="font-size: 5rem; font-weight: 800;">SHORT URL</h1>
+                <h2>INGRESE LA URL A ACORTAR</h2>
+            </div>
+            <div class="input-group mb-3 mt-5">
+                <input type="text" class="form-control form-control-lg" placeholder="Ingrese la URL..." 
+                    [(ngModel)]="nombreUrl">
+                <div class="input-group-append">
+                  <button class="btn btn-dark btn-lg" type="button" id="button-addon2" (click)="procesar()">
+                      ACEPTAR
+                    </button>
+                </div>
+              </div>
+              <div class="input-group mb-3 mt-5" *ngIf="urlProcesada">
+                <input type="text" class="form-control form-control-lg" placeholder="URL procesada..." 
+                    [(ngModel)]="urlShort">
+              </div>
+        </div>
+        <div class="col-lg-5 d-flex justify-content-center align-items-center mt-5">
+            <img class="img-fluid" src="../../../assets/undraw_link_shortener_mvf6.svg" alt="">
+        </div>
+    </div>
+    <app-spinner *ngIf="loanding"></app-spinner>
+</div>
